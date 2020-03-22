@@ -1,22 +1,22 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import { IdeasRoutingModule } from "./ideas-routing.module";
-import { IdeasComponent } from "./ideas.component";
+import { IdeaRoutingModule } from "./idea-routing.module";
+import { IdeaComponent } from "./idea.component";
 import { OverviewComponent } from "./overview/overview.component";
 import { MatListModule } from "@angular/material/list";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { NgxsModule } from "@ngxs/store";
-import { IdeasState } from "./state/ideas.state";
+import { IdeaState } from "./state/idea.state";
 
 @NgModule({
-  declarations: [IdeasComponent, OverviewComponent],
+  declarations: [IdeaComponent, OverviewComponent],
   imports: [
     CommonModule,
-    IdeasRoutingModule,
+    IdeaRoutingModule,
     MatListModule,
     MatToolbarModule,
-    NgxsModule.forFeature([IdeasState])
+    NgxsModule.forFeature([IdeaState])
   ]
 })
-export class IdeasModule {}
+export class IdeaModule {}

@@ -5,7 +5,7 @@ import { Dimension } from "src/app/shared/types/dimension";
 @Injectable({
   providedIn: "root"
 })
-export class IdeasService {
+export class IdeaService {
   ideas(): Idea[] {
     return [
       {

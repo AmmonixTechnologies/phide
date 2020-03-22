@@ -1,24 +1,24 @@
 import { State, Action, StateContext, Selector, NgxsOnInit } from "@ngxs/store";
 import { Idea } from "src/app/shared/types/idea";
-import { IdeasService } from "../services/ideas.service";
+import { IdeaService } from "../services/idea.service";
 import { Injectable } from "@angular/core";
 
-export interface IdeasStateModel {
+export interface IdeaStateModel {
   ideas: Idea[];
 }
 
-@State<IdeasStateModel>({
+@State<IdeaStateModel>({
   name: "ideas"
 })
 @Injectable()
-export class IdeasState implements NgxsOnInit {
+export class IdeaState implements NgxsOnInit {
   @Selector()
-  static ideas(state: IdeasStateModel): Idea[] {
+  static ideas(state: IdeaStateModel): Idea[] {
     return state.ideas;
   }
 
-  ngxsOnInit(ctx: StateContext<IdeasStateModel>) {
+  ngxsOnInit(ctx: StateContext<IdeaStateModel>) {
     ctx.setState({ ideas: this.ideasService.ideas() });
   }
-  constructor(private ideasService: IdeasService) {}
+  constructor(private ideasService: IdeaService) {}
 }
