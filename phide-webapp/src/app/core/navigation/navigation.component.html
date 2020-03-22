@@ -1,16 +1,29 @@
 <mat-sidenav-container>
-    <mat-sidenav #sidenav>
-        <mat-nav-list>
-            <a
-                mat-list-item
-                [routerLink]="link.uri"
-                *ngFor="let link of links"
-                (click)="sidenav.close()"
-            >
-                <mat-icon matListIcon>{{link.icon}}</mat-icon>
-                {{ link.display }}
-            </a>
-        </mat-nav-list>
+    <mat-sidenav
+        #sidenav
+        class="sidenav"
+    >
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let link of links">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon matListIcon>{{link.icon}}</mat-icon>
+                        {{ link.title }}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a
+                        mat-list-item
+                        *ngFor="let navigationItem of link.navigationItems"
+                        [routerLink]="navigationItem.uri"
+                        (click)="sidenav.close()"
+                    >
+                        <mat-icon matListIcon>{{navigationItem.icon}}</mat-icon>
+                        {{ navigationItem.display }}
+                    </a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+        </mat-accordion>
     </mat-sidenav>
 
     <mat-sidenav-content>

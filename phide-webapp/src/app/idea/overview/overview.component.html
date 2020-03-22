@@ -1,5 +1,5 @@
 <mat-accordion>
-    <mat-expansion-panel *ngFor="let idea of ideas">
+    <mat-expansion-panel *ngFor="let idea of ideas$ | async">
         <mat-expansion-panel-header>
             <mat-panel-title>{{idea.name}}</mat-panel-title>
             <mat-panel-description>idea.description</mat-panel-description>

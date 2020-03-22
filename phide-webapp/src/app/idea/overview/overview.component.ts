@@ -5,6 +5,9 @@ import {
   Input
 } from "@angular/core";
 import { Idea } from "src/app/shared/types/idea";
+import { Select } from "@ngxs/store";
+import { IdeaState } from "../state/idea.state";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "phide-overview",
@@ -13,7 +16,7 @@ import { Idea } from "src/app/shared/types/idea";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OverviewComponent implements OnInit {
-  @Input() ideas: Idea[];
+  @Select(IdeaState.ideas) ideas$: Observable<Idea[]>;
   constructor() {}
   ngOnInit(): void {}
 }

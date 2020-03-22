@@ -7,7 +7,24 @@ import { NavigationItem } from "src/app/shared/types/navigation-item";
   styleUrls: ["./navigation.component.scss"]
 })
 export class NavigationComponent implements OnInit {
-  links: NavigationItem[] = [{ uri: "ideas", display: "Ideas", icon: "list" }];
+  links: {
+    title: string;
+    icon: string;
+    navigationItems: NavigationItem[];
+  }[] = [
+    {
+      title: "idea",
+      icon: "not_listed_location",
+      navigationItems: [
+        { uri: "idea/overview", display: "overview", icon: "list" },
+        {
+          uri: "idea/dimension-visualizer",
+          display: "dimension-visualizer",
+          icon: "open_with"
+        }
+      ]
+    }
+  ];
   constructor() {}
 
   ngOnInit() {}

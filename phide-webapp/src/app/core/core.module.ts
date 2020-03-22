@@ -7,6 +7,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatListModule } from "@angular/material/list";
 import { RouterModule } from "@angular/router";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 @NgModule({
   declarations: [NavigationComponent],
@@ -17,6 +18,7 @@ import { RouterModule } from "@angular/router";
     MatButtonModule,
     MatToolbarModule,
     MatListModule,
+    MatExpansionModule,
     RouterModule
   ],
   exports: [NavigationComponent]

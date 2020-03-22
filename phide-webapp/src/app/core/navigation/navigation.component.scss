@@ -6,6 +6,16 @@ mat-sidenav-container {
   right: 0;
   mat-sidenav {
     width: 200px;
+    mat-panel-title {
+      display: flex;
+      align-items: center;
+      mat-icon {
+        padding-right: 7px;
+      }
+    }
+    mat-nav-list {
+      padding-top: 0;
+    }
   }
   mat-sidenav-content {
     display: flex;
