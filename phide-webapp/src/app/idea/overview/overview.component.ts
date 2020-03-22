@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   Input
 } from "@angular/core";
+import { Idea } from "src/app/shared/types/idea";
 
 @Component({
   selector: "phide-overview",
@@ -12,8 +13,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OverviewComponent implements OnInit {
-  @Input() ideas: any;
+  @Input() ideas: Idea[];
   constructor() {}
-
   ngOnInit(): void {}
 }

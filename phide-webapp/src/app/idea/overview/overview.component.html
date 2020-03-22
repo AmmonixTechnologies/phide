@@ -1,3 +1,20 @@
-<mat-list>
-    <mat-list-item *ngFor="let idea of ideas">{{idea.name}}</mat-list-item>
-</mat-list>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let idea of ideas">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{idea.name}}</mat-panel-title>
+            <mat-panel-description>idea.description</mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-list>
+            <mat-list-item *ngFor="let dimensionPercentagePair of idea.dimensions">
+                {{dimensionPercentagePair.dimension.name}}
+                
+                {{dimensionPercentagePair.dimension.from}}
+                <mat-slider
+                    disabled
+                    [value]="dimensionPercentagePair.percentage"
+                ></mat-slider>
+                {{dimensionPercentagePair.dimension.to}}
+            </mat-list-item>
+        </mat-list>
+    </mat-expansion-panel>
+</mat-accordion>

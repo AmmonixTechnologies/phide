@@ -1,7 +1,7 @@
 export class Dimension {
   constructor(
     public name: string,
-    from: string = "left",
-    to: string = "right"
+    public from: string = "left",
+    public to: string = "right"
   ) {}
 }
