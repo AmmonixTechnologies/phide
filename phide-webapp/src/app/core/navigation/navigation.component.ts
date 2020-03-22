@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { NavigationItem } from "src/app/shared/types/navigation-item";
 
 @Component({
   selector: "phide-navigation",
@@ -6,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./navigation.component.scss"]
 })
 export class NavigationComponent implements OnInit {
-  links = [{ uri: "ideas", display: "Ideas", icon: "home" }];
+  links: NavigationItem[] = [{ uri: "ideas", display: "Ideas", icon: "list" }];
   constructor() {}
 
   ngOnInit() {}

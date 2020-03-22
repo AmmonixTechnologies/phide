@@ -1,4 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { Idea } from "../shared/types/idea";
+import { Observable } from "rxjs";
+import { IdeasState } from "./state/ideas.state";
+import { Select } from "@ngxs/store";
 
 @Component({
   selector: "phide-ideas",
@@ -6,7 +10,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./ideas.component.scss"]
 })
 export class IdeasComponent implements OnInit {
-  data = [{ name: "Anarcho-primitivism" }, { name: "Nazbol" }];
+  @Select(IdeasState.ideas) ideas$: Observable<Idea[]>;
   constructor() {}
 
   ngOnInit(): void {}
