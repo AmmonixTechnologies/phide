@@ -1,15 +1,15 @@
 import { State, StateContext, Selector, NgxsOnInit, Action } from "@ngxs/store";
 import { Dimension } from "src/app/shared/types/dimension";
 import { DimensionService } from "../services/dimension.service";
-import { Injectable, Predicate } from "@angular/core";
-import { SelectDimension, UnselectDimension } from "./dimension.actions";
+import { Injectable } from "@angular/core";
 import {
-  patch,
-  append,
-  removeItem,
-  updateItem,
-  insertItem
-} from "@ngxs/store/operators";
+  SelectDimension,
+  UnselectDimension,
+  LoadInitialData
+} from "./dimension.actions";
+import { patch, removeItem, insertItem } from "@ngxs/store/operators";
+import { map } from "rxjs/operators";
+import { Dispatch } from "@ngxs-labs/dispatch-decorator";
 
 export interface DimensionStateModel {
   dimensions: Dimension[];
@@ -39,12 +39,6 @@ export class DimensionState implements NgxsOnInit {
     return state.dimensions;
   }
 
-  ngxsOnInit(ctx: StateContext<DimensionStateModel>) {
-    ctx.setState({
-      dimensions: this.dimensionsService.dimensions(),
-      selectedDimensions: []
-    });
-  }
   @Action(SelectDimension) selectDimension(
     ctx: StateContext<DimensionStateModel>,
     { name }: SelectDimension
@@ -64,6 +58,23 @@ export class DimensionState implements NgxsOnInit {
         selectedDimensions: removeItem<string>(i => i === name)
       })
     );
+  }
+  @Action(LoadInitialData) loadInitialData(
+    ctx: StateContext<DimensionStateModel>
+  ) {
+    return this.dimensionsService.dimensions$().pipe(
+      map(i =>
+        ctx.setState({
+          dimensions: i,
+          selectedDimensions: []
+        })
+      )
+    );
+  }
+
+  @Dispatch() _loadInitialData = () => new LoadInitialData();
+  ngxsOnInit(ctx: StateContext<DimensionStateModel>) {
+    this._loadInitialData();
   }
   constructor(private dimensionsService: DimensionService) {}
 }
