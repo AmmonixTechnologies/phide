@@ -15,6 +15,7 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { NgxsFormPluginModule } from "@ngxs/form-plugin";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { ServiceWorkerModule } from '@angular/service-worker';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -40,7 +41,8 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

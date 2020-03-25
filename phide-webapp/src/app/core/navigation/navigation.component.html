@@ -17,6 +17,7 @@
                         *ngFor="let navigationItem of link.navigationItems"
                         [routerLink]="navigationItem.uri"
                         (click)="sidenav.close()"
+                        routerLinkActive="active-link"
                     >
                         <mat-icon matListIcon>{{navigationItem.icon}}</mat-icon>
                         {{ navigationItem.display | translate}}
@@ -28,7 +29,7 @@
 
     <mat-sidenav-content>
         <header>
-            <mat-toolbar>
+            <mat-toolbar color="primary">
                 <button
                     mat-icon-button
                     (click)="sidenav.open()"

@@ -1,3 +1,5 @@
+@import "~src/assets/styles/theme";
+
 mat-sidenav-container {
   position: absolute;
   top: 0;
@@ -15,6 +17,9 @@ mat-sidenav-container {
     }
     mat-nav-list {
       padding-top: 0;
+      .active-link {
+        color: $accent;
+      }
     }
   }
   mat-sidenav-content {
