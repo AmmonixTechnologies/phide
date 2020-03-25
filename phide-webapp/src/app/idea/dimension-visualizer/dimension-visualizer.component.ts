@@ -14,10 +14,7 @@ import { Idea } from "src/app/shared/types/idea";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DimensionVisualizerComponent implements OnInit {
-  @Select(DimensionState.selectedDimensions) selectedDimensions$: Observable<
-    string[]
-  >;
-  labels$ = this.selectedDimensions$.pipe(map(i => i.slice().sort()));
+  @Select(DimensionState.selectedDimensions) labels$: Observable<string[]>;
   @Select(IdeaState.selectedIdeas) selectedIdeas$: Observable<Idea[]>;
   data$ = combineLatest(this.selectedIdeas$, this.labels$).pipe(
     map(([idea, selectedDimensions]) =>
