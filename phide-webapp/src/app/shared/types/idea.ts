@@ -1,6 +1,13 @@
 import { Dimension } from "./dimension";
 
-export interface Idea {
-  name: string;
-  dimensions: { dimension: Dimension; percentage: number }[];
+export class Idea {
+  public static prefix = "idea";
+  public name: string;
+
+  constructor(
+    name: string,
+    public dimensions: { dimension: Dimension; percentage: number }[]
+  ) {
+    this.name = `${Idea.prefix}.${name}`;
+  }
 }

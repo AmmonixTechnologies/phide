@@ -1,7 +1,11 @@
 export class Dimension {
+  public static prefix = "dimension";
+  public name: string;
   constructor(
-    public name: string,
+    name: string,
     public from: string = "left",
     public to: string = "right"
-  ) {}
+  ) {
+    this.name = `${Dimension.prefix}.${name}`;
+  }
 }

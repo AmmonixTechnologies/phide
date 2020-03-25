@@ -8,7 +8,7 @@
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         <mat-icon matListIcon>{{link.icon}}</mat-icon>
-                        {{ link.title }}
+                        {{ link.title | translate}}
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <mat-nav-list>
@@ -19,7 +19,7 @@
                         (click)="sidenav.close()"
                     >
                         <mat-icon matListIcon>{{navigationItem.icon}}</mat-icon>
-                        {{ navigationItem.display }}
+                        {{ navigationItem.display | translate}}
                     </a>
                 </mat-nav-list>
             </mat-expansion-panel>

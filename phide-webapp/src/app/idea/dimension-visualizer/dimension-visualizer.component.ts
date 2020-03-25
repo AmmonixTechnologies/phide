@@ -6,6 +6,7 @@ import { Observable, combineLatest } from "rxjs";
 import { map, filter, tap } from "rxjs/operators";
 import { IdeaState } from "../state/idea.state";
 import { Idea } from "src/app/shared/types/idea";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "phide-dimension-visualizer",
@@ -19,7 +20,7 @@ export class DimensionVisualizerComponent implements OnInit {
   data$ = combineLatest(this.selectedIdeas$, this.labels$).pipe(
     map(([idea, selectedDimensions]) =>
       idea.map(j => ({
-        label: j.name,
+        label: this.translateService.instant(j.name),
         data: selectedDimensions.map(
           s => j.dimensions.find(d => d.dimension.name == s)?.percentage ?? 50
         )
@@ -27,8 +28,11 @@ export class DimensionVisualizerComponent implements OnInit {
     )
   );
   radarData$ = combineLatest(this.data$, this.labels$).pipe(
-    filter(([d, l]) => !!d.length),
-    map(([d, l]) => ({ data: d, labels: l }))
+    filter(([d, _]) => !!d.length),
+    map(([d, l]) => ({
+      data: d,
+      labels: l.map(i => this.translateService.instant(i))
+    }))
   );
   radarChartOptions: RadialChartOptions = {
     responsive: true,
@@ -45,7 +49,7 @@ export class DimensionVisualizerComponent implements OnInit {
 
   radarChartType: ChartType = "radar";
 
-  constructor() {}
+  constructor(private translateService: TranslateService) {}
 
   ngOnInit() {}
 }

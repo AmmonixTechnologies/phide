@@ -13,15 +13,15 @@ export class NavigationComponent implements OnInit {
     navigationItems: NavigationItem[];
   }[] = [
     {
-      title: "idea",
+      title: "navigation.idea",
       icon: "not_listed_location",
       navigationItems: [
-        { uri: "idea/overview", display: "overview", icon: "list" },
-        {
-          uri: "idea/dimension-visualizer",
-          display: "dimension-visualizer",
-          icon: "open_with"
-        }
+        new NavigationItem("overview", "idea/overview", "list"),
+        new NavigationItem(
+          "dimension_visualizer",
+          "idea/dimension-visualizer",
+          "open_with"
+        )
       ]
     }
   ];

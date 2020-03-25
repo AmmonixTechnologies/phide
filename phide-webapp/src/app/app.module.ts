@@ -11,9 +11,10 @@ import { NgxsModule } from "@ngxs/store";
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
 import { NgxsRouterPluginModule } from "@ngxs/router-plugin";
 import { NgxsDispatchPluginModule } from "@ngxs-labs/dispatch-decorator";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { NgxsFormPluginModule } from "@ngxs/form-plugin";
-
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -32,9 +33,19 @@ import { NgxsFormPluginModule } from "@ngxs/form-plugin";
     }),
     NgxsRouterPluginModule.forRoot(),
     NgxsDispatchPluginModule.forRoot(),
-    NgxsFormPluginModule.forRoot()
+    NgxsFormPluginModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

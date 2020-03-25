@@ -3,6 +3,6 @@
         [checked]="option.selected"
         (click)="toggleOption.emit({selected : !option.selected, name: option.name})"
     >
-        {{option.name}}
+        {{option.name | translate}}
     </mat-checkbox>
 </div>

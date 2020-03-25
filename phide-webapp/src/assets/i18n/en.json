@@ -1,0 +1,26 @@
+{
+  "dimension": {
+    "economical": "Economical",
+    "cultural": "Cultural",
+    "accelerationist": "Accelerationist",
+    "wacky": "Wacky",
+    "statist": "Statist"
+  },
+  "idea": {
+    "left": "Left",
+    "right": "Right",
+    "anarcho_primitivism": "Anarcho-Primitivism",
+    "national_bolshevism": "National Bolshevism"
+  },
+  "dimension_visualizer": {
+    "dimension_select": "Dimensions to display",
+    "idea_select": "Ideas to compare"
+  },
+  "navigation": {
+    "idea": "Idea",
+    "item": {
+      "overview": "Overview",
+      "dimension_visualizer": "Dimension Visualizer"
+    }
+  }
+}

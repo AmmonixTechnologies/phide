@@ -1,12 +1,16 @@
 <div>
-    <h2>dimension_select</h2>
+    <h2>
+        {{"dimension_visualizer.dimension_select" | translate}}
+    </h2>
     <phide-selector
         [options]="dimensionOptions$ | async"
         (toggleOption)="toggleDimension($event)"
     ></phide-selector>
 </div>
 <div>
-    <h2>idea_select</h2>
+    <h2>
+        {{"dimension_visualizer.idea_select" | translate}}
+    </h2>
     <phide-selector
         [options]="ideaOptions$ | async"
         (toggleOption)="toggleIdea($event)"

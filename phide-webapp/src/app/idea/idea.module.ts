@@ -16,7 +16,8 @@ import { ChartsModule } from "ng2-charts";
 import { DimensionState } from "./state/dimension.state";
 import { VisualizerOptionsComponent } from "./visualizer-options/visualizer-options.component";
 import { MatCheckboxModule } from "@angular/material/checkbox";
-import { SelectorComponent } from './visualizer-options/selector/selector.component';
+import { SelectorComponent } from "./visualizer-options/selector/selector.component";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SelectorComponent } from './visualizer-options/selector/selector.compon
     MatSliderModule,
     ChartsModule,
     MatCheckboxModule,
+    SharedModule,
     NgxsModule.forFeature([IdeaState, DimensionState])
   ]
 })

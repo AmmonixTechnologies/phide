@@ -1,19 +1,19 @@
 <mat-accordion>
     <mat-expansion-panel *ngFor="let idea of ideas$ | async">
         <mat-expansion-panel-header>
-            <mat-panel-title>{{idea.name}}</mat-panel-title>
+            <mat-panel-title>{{idea.name | translate}}</mat-panel-title>
             <mat-panel-description>idea.description</mat-panel-description>
         </mat-expansion-panel-header>
         <mat-list>
             <mat-list-item *ngFor="let dimensionPercentagePair of idea.dimensions">
-                {{dimensionPercentagePair.dimension.name}}
+                {{dimensionPercentagePair.dimension.name | translate}}
                 
-                {{dimensionPercentagePair.dimension.from}}
+                {{dimensionPercentagePair.dimension.from | translate}}
                 <mat-slider
                     disabled
                     [value]="dimensionPercentagePair.percentage"
                 ></mat-slider>
-                {{dimensionPercentagePair.dimension.to}}
+                {{dimensionPercentagePair.dimension.to | translate}}
             </mat-list-item>
         </mat-list>
     </mat-expansion-panel>

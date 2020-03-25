@@ -8,6 +8,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatListModule } from "@angular/material/list";
 import { RouterModule } from "@angular/router";
 import { MatExpansionModule } from "@angular/material/expansion";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [NavigationComponent],
@@ -19,7 +20,8 @@ import { MatExpansionModule } from "@angular/material/expansion";
     MatToolbarModule,
     MatListModule,
     MatExpansionModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [NavigationComponent]
 })
