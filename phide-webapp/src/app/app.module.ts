@@ -12,6 +12,7 @@ import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
 import { NgxsRouterPluginModule } from "@ngxs/router-plugin";
 import { NgxsDispatchPluginModule } from "@ngxs-labs/dispatch-decorator";
 import { HttpClientModule } from "@angular/common/http";
+import { NgxsFormPluginModule } from "@ngxs/form-plugin";
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +31,8 @@ import { HttpClientModule } from "@angular/common/http";
       disabled: environment.production
     }),
     NgxsRouterPluginModule.forRoot(),
-    NgxsDispatchPluginModule.forRoot()
+    NgxsDispatchPluginModule.forRoot(),
+    NgxsFormPluginModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

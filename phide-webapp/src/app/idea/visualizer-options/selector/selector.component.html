@@ -1,0 +1,8 @@
+<div *ngFor="let option of options ">
+    <mat-checkbox
+        [checked]="option.selected"
+        (click)="toggleOption.emit({selected : !option.selected, name: option.name})"
+    >
+        {{option.name}}
+    </mat-checkbox>
+</div>

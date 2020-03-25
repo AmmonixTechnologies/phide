@@ -22,10 +22,11 @@
     "@angular/platform-browser-dynamic": "~9.0.7",
     "@angular/router": "~9.0.7",
     "@ngxs-labs/dispatch-decorator": "^2.1.0",
-    "@ngxs-labs/immer-adapter": "^3.0.5",
+    "@ngxs/form-plugin": "^3.6.2",
     "@ngxs/router-plugin": "^3.6.2",
     "@ngxs/store": "^3.6.2",
-    "immer": "^6.0.2",
+    "chart.js": "^2.9.3",
+    "ng2-charts": "^2.3.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

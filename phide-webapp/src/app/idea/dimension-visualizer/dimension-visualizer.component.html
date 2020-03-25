@@ -1,1 +1,14 @@
-<p>dimension-visualizer works!</p>
+<phide-visualizer-options></phide-visualizer-options>
+<div
+    *ngIf="radarData$ | async as radarData"
+    style="display: block"
+>
+    <canvas
+        baseChart
+        [datasets]="radarData.data"
+        [options]="radarChartOptions"
+        [labels]="radarData.labels"
+        [chartType]="radarChartType"
+    >
+    </canvas>
+</div>
