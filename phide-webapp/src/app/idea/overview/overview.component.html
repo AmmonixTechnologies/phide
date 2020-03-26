@@ -4,25 +4,24 @@
             <mat-panel-title>{{idea.name | translate}}</mat-panel-title>
             <mat-panel-description>idea.description</mat-panel-description>
         </mat-expansion-panel-header>
-        <div class="panel-body">
-            <div class="labels">
-                <span *ngFor="let label of idea.dimensions.labels">{{label | translate}}</span>
-            </div>
-            <div class="values">
-                <div class="froms">
-                    <span *ngFor="let from of idea.dimensions.froms">{{from | translate}}</span>
+        <div class="grid">
+            <ng-container *ngFor="let dimensionPercentagePair of idea.dimensions">
+                <div class="name">
+                    {{dimensionPercentagePair.dimension.name | translate}}
                 </div>
-                <div class="sliders">
+                <div class="from">
+                    {{dimensionPercentagePair.dimension.from | translate}}
+                </div>
+                <div class="slider">
                     <mat-slider
-                        *ngFor="let percentage of idea.dimensions.percentages"
                         disabled
-                        [value]="percentage"
+                        [value]="dimensionPercentagePair.percentage"
                     ></mat-slider>
                 </div>
-                <div class="tos">
-                    <span *ngFor="let to of idea.dimensions.tos">{{to | translate}}</span>
+                <div class="to">
+                    {{dimensionPercentagePair.dimension.to | translate}}
                 </div>
-            </div>
+            </ng-container>
         </div>
     </mat-expansion-panel>
 </mat-accordion>

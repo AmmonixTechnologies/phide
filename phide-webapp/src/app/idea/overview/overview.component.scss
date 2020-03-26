@@ -1,25 +1,19 @@
-.panel-body {
-  display: flex;
-  flex-direction: row;
-  .labels,
-  .froms,
-  .sliders,
-  .tos {
-    display: flex;
-    flex-direction: column;
-    & > * {
-      line-height: 48px;
-    }
+.grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 10% auto 30% 130px 30%;
+  .name {
+    grid-column-start: 1;
   }
-  .values {
-    display: flex;
-    flex: 1;
-    .froms {
-      text-align: right;
-      padding-right: 5px;
-    }
+  .from {
+    grid-column-start: 3;
+    text-align: right;
   }
-}
-.mat-slider {
-  padding: 0;
+  .slider {
+    grid-column-start: 4;
+    justify-self: center;
+  }
+  .to {
+    grid-column-start: 5;
+  }
 }
