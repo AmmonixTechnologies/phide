@@ -1,12 +1,11 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { ChartType, RadialChartOptions } from "chart.js";
 import { Select } from "@ngxs/store";
-import { DimensionState } from "../state/dimension.state";
-import { Observable, combineLatest } from "rxjs";
-import { map, filter, tap } from "rxjs/operators";
-import { IdeaState } from "../state/idea.state";
+import { Observable, combineLatest, iif, of } from "rxjs";
+import { map, mergeMap } from "rxjs/operators";
 import { Idea } from "src/app/shared/types/idea";
 import { TranslateService } from "@ngx-translate/core";
+import { VisualizerState } from "../state/visualizer.state";
 
 @Component({
   selector: "phide-dimension-visualizer",
@@ -15,24 +14,29 @@ import { TranslateService } from "@ngx-translate/core";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DimensionVisualizerComponent implements OnInit {
-  @Select(DimensionState.selectedDimensions) labels$: Observable<string[]>;
-  @Select(IdeaState.selectedIdeas) selectedIdeas$: Observable<Idea[]>;
+  @Select(VisualizerState.selectedDimensions) labels$: Observable<string[]>;
+  @Select(VisualizerState.selectedIdeas) selectedIdeas$: Observable<Idea[]>;
   data$ = combineLatest(this.selectedIdeas$, this.labels$).pipe(
     map(([idea, selectedDimensions]) =>
       idea.map(j => ({
         label: this.translateService.instant(j.name),
         data: selectedDimensions.map(
-          s => j.dimensions.find(d => d.dimension.name == s)?.percentage ?? 50
+          s => j.dimensions.find(d => d.dimension.name == s)?.percentage
         )
       }))
     )
   );
   radarData$ = combineLatest(this.data$, this.labels$).pipe(
-    filter(([d, _]) => !!d.length),
-    map(([d, l]) => ({
-      data: d,
-      labels: l.map(i => this.translateService.instant(i))
-    }))
+    mergeMap(([d, l]) =>
+      iif(
+        () => !!d.length,
+        of({
+          data: d,
+          labels: l.map(i => this.translateService.instant(i))
+        }),
+        of(null)
+      )
+    )
   );
   radarChartOptions: RadialChartOptions = {
     responsive: true,

@@ -1,11 +1,14 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { Select } from "@ngxs/store";
-import { DimensionState } from "../state/dimension.state";
 import { Observable } from "rxjs";
 import { Dispatch } from "@ngxs-labs/dispatch-decorator";
-import { SelectDimension, UnselectDimension } from "../state/dimension.actions";
-import { SelectIdea, UnselectIdea } from "../state/idea.actions ";
-import { IdeaState } from "../state/idea.state";
+import {
+  SelectDimension,
+  UnselectDimension,
+  SelectIdea,
+  UnselectIdea
+} from "../state/visualizer.actions";
+import { VisualizerState } from "../state/visualizer.state";
 
 @Component({
   selector: "phide-visualizer-options",
@@ -14,10 +17,10 @@ import { IdeaState } from "../state/idea.state";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VisualizerOptionsComponent implements OnInit {
-  @Select(DimensionState.dimensionOptions) dimensionOptions$: Observable<
+  @Select(VisualizerState.dimensionOptions) dimensionOptions$: Observable<
     { name: string; selected: boolean }[]
   >;
-  @Select(IdeaState.ideaOptions) ideaOptions$: Observable<
+  @Select(VisualizerState.ideaOptions) ideaOptions$: Observable<
     { name: string; selected: boolean }[]
   >;
 

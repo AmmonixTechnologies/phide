@@ -18,6 +18,7 @@ import { VisualizerOptionsComponent } from "./visualizer-options/visualizer-opti
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { SelectorComponent } from "./visualizer-options/selector/selector.component";
 import { SharedModule } from "../shared/shared.module";
+import { VisualizerState } from "./state/visualizer.state";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { SharedModule } from "../shared/shared.module";
     ChartsModule,
     MatCheckboxModule,
     SharedModule,
-    NgxsModule.forFeature([IdeaState, DimensionState])
+    NgxsModule.forFeature([IdeaState, DimensionState, VisualizerState])
   ]
 })
 export class IdeaModule {}
