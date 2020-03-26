@@ -1,18 +1,25 @@
 <div>
     <h2>
-        {{"dimension_visualizer.dimension_select" | translate}}
-    </h2>
-    <phide-selector
-        [options]="dimensionOptions$ | async"
-        (toggleOption)="toggleDimension($event)"
-    ></phide-selector>
-</div>
-<div>
-    <h2>
         {{"dimension_visualizer.idea_select" | translate}}
     </h2>
     <phide-selector
         [options]="ideaOptions$ | async"
         (toggleOption)="toggleIdea($event)"
     ></phide-selector>
+</div>
+<div>
+    <h2>
+        {{"dimension_visualizer.dimension_select" | translate}}
+    </h2>
+    <phide-selector
+        *ngIf="dimensionOptions$ | async as dimensionOptions; else elseBlock"
+        [options]="dimensionOptions"
+        (toggleOption)="toggleDimension($event)"
+    ></phide-selector>
+    <ng-template #elseBlock>
+        <span>
+            {{"dimension_visualizer.select_idea" | translate}}
+        </span>
+    </ng-template>
+
 </div>

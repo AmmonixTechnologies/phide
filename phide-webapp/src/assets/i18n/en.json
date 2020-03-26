@@ -39,7 +39,8 @@
   },
   "dimension_visualizer": {
     "dimension_select": "Dimensions to display",
-    "idea_select": "Ideas to compare"
+    "idea_select": "Ideas to compare",
+    "select_idea": "Please select ideas you want to compare."
   },
   "navigation": {
     "idea": "Idea",

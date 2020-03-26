@@ -1,0 +1,25 @@
+.panel-body {
+  display: flex;
+  flex-direction: row;
+  .labels,
+  .froms,
+  .sliders,
+  .tos {
+    display: flex;
+    flex-direction: column;
+    & > * {
+      line-height: 48px;
+    }
+  }
+  .values {
+    display: flex;
+    flex: 1;
+    .froms {
+      text-align: right;
+      padding-right: 5px;
+    }
+  }
+}
+.mat-slider {
+  padding: 0;
+}
