@@ -1,16 +1,41 @@
 {
   "dimension": {
-    "economical": "Economical",
-    "cultural": "Cultural",
-    "accelerationist": "Accelerationist",
-    "wacky": "Wacky",
-    "statist": "Statist"
+    "economical": {
+      "name": "Economical",
+      "from": "No redistribution of wealth",
+      "to": "Equal redistribution of wealth"
+    },
+    "cultural": {
+      "name": "Cultural",
+      "from": "Acceleration of all People towards Equality",
+      "to": "Preservation of culture"
+    },
+    "statist": {
+      "name": "Statist",
+      "from": "Anarchist",
+      "to": "Totalitarian"
+    },
+    "wacky": {
+      "name": "Wacky",
+      "from": "Realistic",
+      "to": "Impossible"
+    },
+    "environmentalist": {
+      "name": "Environmentalist",
+      "from": "Preservation of nature above all else",
+      "to": "Reckless exploitation of nature"
+    }
   },
   "idea": {
     "left": "Left",
     "right": "Right",
-    "anarcho_primitivism": "Anarcho-Primitivism",
-    "national_bolshevism": "National Bolshevism"
+    "communism": "Communism",
+    "posadism": "Posadism",
+    "facism": "Facism",
+    "ecofacism": "Ecofacism",
+    "national_bolshevism": "National Bolshevism",
+    "anarcho_facism": "Anarcho-fascism",
+    "nazism": "National Socialism"
   },
   "dimension_visualizer": {
     "dimension_select": "Dimensions to display",
