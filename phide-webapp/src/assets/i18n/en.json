@@ -47,6 +47,10 @@
     "item": {
       "overview": "Overview",
       "dimension_visualizer": "Dimension Visualizer"
+    },
+    "footer": {
+      "inspiration": "Inspirtation taken from:",
+      "project_source": "This project can be found on"
     }
   }
 }

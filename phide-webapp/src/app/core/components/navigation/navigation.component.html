@@ -29,19 +29,13 @@
 
     <mat-sidenav-content>
         <header>
-            <mat-toolbar color="primary">
-                <button
-                    mat-icon-button
-                    (click)="sidenav.open()"
-                >
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <span>Phide</span>
-            </mat-toolbar>
+            <phide-header (toggleMenu)="sidenav.open()"></phide-header>
         </header>
         <main>
             <ng-content></ng-content>
         </main>
-        <footer>footer</footer>
+        <footer>
+            <phide-footer></phide-footer>
+        </footer>
     </mat-sidenav-content>
 </mat-sidenav-container>

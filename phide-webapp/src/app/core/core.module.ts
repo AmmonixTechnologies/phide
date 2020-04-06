@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { NavigationComponent } from "./navigation/navigation.component";
+import { NavigationComponent } from "./components/navigation/navigation.component";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
@@ -9,9 +9,12 @@ import { MatListModule } from "@angular/material/list";
 import { RouterModule } from "@angular/router";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { SharedModule } from "../shared/shared.module";
+import { FooterComponent } from "./components/footer/footer.component";
+import { HeaderComponent } from "./components/header/header.component";
+import { MatGridListModule } from "@angular/material/grid-list";
 
 @NgModule({
-  declarations: [NavigationComponent],
+  declarations: [NavigationComponent, FooterComponent, HeaderComponent],
   imports: [
     CommonModule,
     MatSidenavModule,
@@ -20,9 +23,10 @@ import { SharedModule } from "../shared/shared.module";
     MatToolbarModule,
     MatListModule,
     MatExpansionModule,
+    MatGridListModule,
     RouterModule,
-    SharedModule
+    SharedModule,
   ],
-  exports: [NavigationComponent]
+  exports: [NavigationComponent],
 })
 export class CoreModule {}

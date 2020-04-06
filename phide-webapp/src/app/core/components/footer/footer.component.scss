@@ -1,0 +1,8 @@
+@import "~src/assets/styles/theme";
+mat-grid-list {
+  background-color: $primary;
+}
+
+.mat-stroked-button ~ .mat-stroked-button {
+  margin-left: 5px;
+}
